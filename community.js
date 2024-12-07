@@ -1,74 +1,67 @@
-const tags = [
-    "넷플릭스", "왓챠", "티빙", "한국 드라마",
-    "코미디", "스릴러", "판타지", "액션",
-    "SF", "로맨스", "공포", "다큐멘터리",
-    "가족", "역사", "음악", "스포츠"
+// 게시글 데이터
+const posts = [
+    { title: "로맨스 영화 추천", content: "로맨틱한 영화 추천해주세요!", author: "노란바나나", likes: 3, comments: 1, category: "로맨스" },
+    { title: "넷플 추천", content: "요새 볼 게 없음", author: "징징이", likes: 0, comments: 2, category: "영화" },
+    { title: "블랙 미러 비슷한 거 추천해주세요", author: "카레먹고싶다", content: "에피소드 형식 스릴러 장르요", likes: 0, comments: 0, category: "미스테리" },
+    { title: "트렁크 볼말", content: "재미 없다고 해서 고민 중", author: "파츄", likes: 4, comments: 6, category: "드라마" },
+    { title: "넷플릭스 입문작 추천 5", content: "기묘한 이야기 추천", author: "별꼬다리", likes: 12, comments: 8, category: "공포" },
   ];
   
-  const contents = [
-    { title: "더 글로리", ott: "넷플릭스", rating: 4.8, image: "https://via.placeholder.com/150", tags: ["넷플릭스", "드라마", "복수"] },
-    { title: "괴물", ott: "왓챠", rating: 4.6, image: "https://via.placeholder.com/150", tags: ["왓챠", "스릴러", "미스터리"] },
-    { title: "스위트홈", ott: "넷플릭스", rating: 4.4, image: "https://via.placeholder.com/150", tags: ["넷플릭스", "공포", "액션"] },
-    { title: "시그널", ott: "티빙", rating: 4.9, image: "https://via.placeholder.com/150", tags: ["티빙", "스릴러", "미스터리"] },
-    { title: "미드소마", ott: "왓챠", rating: 3.4, image: "https://via.placeholder.com/150", tags: ["왓챠", "스릴러", "미스터리", "공포"]}
+  // 내가 쓴 글 (예시 데이터)
+  const myPosts = [
+    { title: "미드 추천", content: "와이 우먼 킬 재밌어", author: "User", likes: 3, comments: 0, category: "드라마" },
   ];
   
-  let selectedTags = [];
-  
-  // 태그 생성
-  document.getElementById("tagsContainer").innerHTML = tags
-    .map(tag => `<div class="tag" onclick="toggleTag('${tag}')">${tag}</div>`)
-    .join("");
-  
-  // 태그 선택 토글
-  function toggleTag(tag) {
-    const index = selectedTags.indexOf(tag);
-    if (index === -1) {
-      selectedTags.push(tag);
-    } else {
-      selectedTags.splice(index, 1);
-    }
-  
-    document.querySelectorAll(".tag").forEach(el => {
-      if (selectedTags.includes(el.textContent)) {
-        el.classList.add("selected");
-      } else {
-        el.classList.remove("selected");
-      }
-    });
-  }
-  
-  // 검색 버튼 클릭 시 필터링
-  function filterContents() {
-    const searchInput = document.getElementById("searchInput").value.toLowerCase();
-    const contentList = document.getElementById("contentList");
-  
-    contentList.style.display = "flex"; // 검색 버튼 클릭 시 콘텐츠 표시
-  
-    contentList.innerHTML = contents
-      .filter(content =>
-        content.title.toLowerCase().includes(searchInput) &&
-        (selectedTags.length === 0 || selectedTags.every(tag => content.tags.includes(tag)))
-      )
-      .map(content => `
-        <div class="content-item">
-          <img src="${content.image}" alt="${content.title}">
-          <div class="content-info">
-            <h3>${content.title}</h3>
-            <p>${content.ott}</p>
-            <p>⭐ ${content.rating}</p>
+  function displayPosts(containerId, postsList) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = postsList
+      .map(
+        (post, index) => `
+        <div class="post-item" onclick="goToPost(${index}, '${containerId}')">
+          <h3>${post.title}</h3>
+          <div class="post-meta">
+            <span>작성자: ${post.author}</span>
+            <span>추천: ${post.likes} 댓글: ${post.comments}</span>
           </div>
-          <div class="heart-button" onclick="toggleHeart(this)">♡</div>
         </div>
-      `).join("");
+      `
+      )
+      .join("");
+  }
   
-    if (contentList.innerHTML === "") {
-      contentList.innerHTML = "<p>일치하는 콘텐츠가 없습니다.</p>";
+  function goToCreatePost() {
+    window.location.href = "create-post.html";
+  }
+  
+  function filterPostsByCategory(category) {
+    const filteredPosts = category === "all" ? posts : posts.filter(post => post.category === category);
+    displayPosts("latestPostsContainer", filteredPosts);
+
+    const dropdown = document.getElementById("categoryDropdown");
+    dropdown.style.display = "none";
+  }
+  
+  function goToPost(index, containerId) {
+    const post = containerId === "myPostsContainer" ? myPosts[index] : posts[index];
+    localStorage.setItem("selectedPost", JSON.stringify(post));
+    window.location.href = "view-post.html";
+  }
+  
+  function toggleDropdown() {
+    const dropdown = document.getElementById("categoryDropdown");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+  }
+  
+  document.addEventListener("click", (event) => {
+    const dropdown = document.getElementById("categoryDropdown");
+    const dropdownToggle = document.querySelector(".dropdown");
+  
+    if (!dropdown.contains(event.target) && !dropdownToggle.contains(event.target)) {
+      dropdown.style.display = "none";
     }
-  }
+  });
+
+  displayPosts("myPostsContainer", myPosts);
+  displayPosts("latestPostsContainer", posts);
   
-  function toggleHeart(element) {
-    element.classList.toggle("selected");
-    element.textContent = element.classList.contains("selected") ? "♥ " : "♡ ";
-  }
   
