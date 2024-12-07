@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-width:0px 0px 2px 0px;
+    border-style: solid;
+    color: rgb(0, 0, 0);
+  }
+  
+  .logo {
+    font-size: 1.5em;
+  }
+  
+  .menu {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  main {
+    padding: 20px;
+  }
+  
+
+#postDetails h1 {
+    margin-bottom: 10px;
+  }
+  
+  .post-meta {
+    color: gray;
+    margin-bottom: 20px;
+  }
+  
+  #commentsSection {
+    margin-top: 40px;
+  }
+  
+  #commentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  #commentInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  #addCommentButton {
+    align-self: flex-end;
+    padding: 8px 16px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #commentsContainer .comment {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+  }
+  

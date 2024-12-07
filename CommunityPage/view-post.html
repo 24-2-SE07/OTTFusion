@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OTT Comprehensive Rating Application</title>
+        <link rel="stylesheet" href="view-post.css">
+      </head>
+      <body>
+        <header>
+          <div class="logo">OTT</div>
+          <div class="menu">☰</div>
+        </header>
+
+  <main>
+    <section id="postDetails">
+      <h1 id="postTitle"></h1>
+      <div class="post-meta">
+        <span id="postAuthor"></span> | <span id="postCategory"></span>
+      </div>
+      <p id="postContent"></p>
+      <button id="likeButton">추천 <span id="likeCount"></span></button>
+      <button id="deleteButton">삭제</button>
+    </section>
+
+    <section id="commentsSection">
+      <h3>댓글</h3>
+      <div id="commentsContainer"></div>
+      <div id="commentForm">
+        <textarea id="commentInput" placeholder="댓글을 입력하세요"></textarea>
+        <button id="addCommentButton">작성</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="view-post.js"></script>
+</body>
+</html>
