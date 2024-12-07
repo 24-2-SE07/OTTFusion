@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTT Comprehensive Rating Application</title>
+    <link rel="stylesheet" href="search.css">
+  </head>
+  <body>
+    <header>
+      <div class="logo">LOGO</div>
+      <div class="menu">☰</div>
+    </header>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="검색어를 입력하세요">
+      <button onclick="filterContents()">검색</button>
+    </div>
+
+    <div class="tags" id="tagsContainer"></div>
+
+    <div class="content-list" id="contentList"></div>
+
+    <script src="search.js"></script>
+  </body>
+</html>
