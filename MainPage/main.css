@@ -48,6 +48,7 @@ header {
     width: 200px;
     background: #f9f9f9;
     text-align: center;
+    position: relative;
   }
   
   .content-image {
@@ -71,3 +72,11 @@ header {
     color: #666;
   }
   
+.fa-heart {
+    font-size: 24px; 
+    color: #f00;
+    position: absolute;
+    bottom: 140px;  /* 원하는 위치로 조정 */
+    right: 20px; /* 오른쪽에 배치 */
+    cursor: pointer;
+}
