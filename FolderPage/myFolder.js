@@ -54,6 +54,21 @@ $(document).ready(function () {
           alert("삭제되었습니다.");
       }
     });
+  });  
+  
+  $(".add-folder").on("click", function () {
+    const folderName = prompt("폴더 이름을 입력하세요:");
+    if (folderName) {
+      console.log("hi");
+      // 폴더 리스트에 새 폴더 추가
+      const folderHTML = `
+        <div class="folder-item" id="folder-${folders.length - 1}">
+          <i class="fas fa-folder"></i>
+          <span class="folder-name">${folderName}</span>
+        </div>
+      `;
+      $folderGrid.append(folderHTML);
+    }
   });
   
 });

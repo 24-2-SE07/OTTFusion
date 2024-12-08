@@ -1,4 +1,4 @@
-import { contents } from '../Content/content.js'; 
+import { contents } from '../Module/content.js'; 
 
 $(document).ready(function () {
     const $contentGrid = $(".content-grid");
