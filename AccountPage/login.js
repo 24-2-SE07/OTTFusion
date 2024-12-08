@@ -7,7 +7,7 @@ $("input[type='button']").on("click", function () {
     alert("로그인되었습니다.");
     window.location.href = "../MainPage/main.html";
     } else {
-    alert("이메일과 비밀번호를 입력해주세요.");
+    alert("아이디과 비밀번호를 입력해주세요.");
     }
 });
 });
