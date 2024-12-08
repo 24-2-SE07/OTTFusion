@@ -50,10 +50,62 @@ header {
     font-size: 18px; /* 폴더 이름 크기 */
   }
   
-  .add-flolder {
+  .add-folder {
     margin-left : 30px;
   }
 
   .fa-plus {
     margin-right: 10px;
   }
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto; 
+  max-width: 1000px; 
+  gap: auto;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.content-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  width: 200px;
+  background: #f9f9f9;
+  text-align: center;
+  position: relative;
+}
+
+.content-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.content-title {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.rating {
+  font-size: 18px;
+  color: #ff9900;
+}
+
+.platform {
+  font-size: 14px;
+  color: #666;
+}
+
+.fa-heart {
+  font-size: 24px; 
+  color: #f00;
+  position: absolute;
+  bottom: 140px;  /* 원하는 위치로 조정 */
+  right: 20px; /* 오른쪽에 배치 */
+  cursor: pointer;
+}
