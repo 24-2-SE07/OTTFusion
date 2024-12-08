@@ -52,13 +52,14 @@ header {
     padding: 10px 0;
 }
 
+input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="button"] {
     width: 100%; /* 모든 입력 필드와 버튼 너비를 동일하게 설정 */
     padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
