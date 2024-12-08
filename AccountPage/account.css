@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    color: rgb(0, 0, 0);
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+.menu {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+#login_space {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 50vh;
+    margin-top: 15vh;
+    padding: 10px 30px;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    flex-direction: column; /* 세로로 배치 */
+    padding: 30px;
+}
+
+.col-4 {
+    width: 100%; /* 100%로 설정하여 세로 배치 */
+    padding: 10px 0;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="button"] {
+    width: 100%; /* 모든 입력 필드와 버튼 너비를 동일하게 설정 */
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* padding을 포함한 너비 설정 */
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+input[type="button"] {
+    background-color: lightpink;
+    color: #fff;
+    padding: 12px; /* 버튼 패딩을 약간 증가시켜 클릭 영역을 넓힘 */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+input[type="button"]:hover {
+    background-color: lightcoral;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1em;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#error {
+    color: #ff0000;
+    font-size: 0.9em;
+    margin-top: 10px;
+    text-align: center;
+}
