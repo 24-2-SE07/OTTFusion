@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-width:0px 0px 2px 0px;
+    border-style: solid;
+    color: rgb(0, 0, 0);
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+.menu {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.my-contents {
+    margin: 20px;
+}
+
+.folder-grid {
+    display: flex;
+    flex-direction: column; /* 1열로 나열 */
+    gap: 15px; /* 각 폴더 간의 간격 */
+    margin: 0px 20px;
+  }
+  
+  .folder-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 아이콘과 폴더 이름 간의 간격 */
+  }
+  
+  .folder-item i {
+    font-size: 30px; /* 폴더 아이콘 크기 */
+  }
+  
+  .folder-item .folder-name {
+    font-size: 18px; /* 폴더 이름 크기 */
+  }
+  
+  .add-folder {
+    margin-left : 30px;
+  }
+
+  .fa-plus {
+    margin-right: 10px;
+  }
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto; 
+  max-width: 1000px; 
+  gap: auto;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.content-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  width: 200px;
+  background: #f9f9f9;
+  text-align: center;
+  position: relative;
+}
+
+.content-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.content-title {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.rating {
+  font-size: 18px;
+  color: #ff9900;
+}
+
+.platform {
+  font-size: 14px;
+  color: #666;
+}
+
+.fa-heart {
+  font-size: 24px; 
+  color: #f00;
+  position: absolute;
+  bottom: 140px;  /* 원하는 위치로 조정 */
+  right: 20px; /* 오른쪽에 배치 */
+  cursor: pointer;
+}
