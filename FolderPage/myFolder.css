@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-width:0px 0px 2px 0px;
+    border-style: solid;
+    color: rgb(0, 0, 0);
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+.menu {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.my-contents {
+    margin: 20px;
+}
+
+.folder-grid {
+    display: flex;
+    flex-direction: column; /* 1열로 나열 */
+    gap: 15px; /* 각 폴더 간의 간격 */
+    margin: 0px 20px;
+  }
+  
+  .folder-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 아이콘과 폴더 이름 간의 간격 */
+  }
+  
+  .folder-item i {
+    font-size: 30px; /* 폴더 아이콘 크기 */
+  }
+  
+  .folder-item .folder-name {
+    font-size: 18px; /* 폴더 이름 크기 */
+  }
+  
+  .add-flolder {
+    margin-left : 30px;
+  }
+
+  .fa-plus {
+    margin-right: 10px;
+  }
