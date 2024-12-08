@@ -1,4 +1,4 @@
-import { Categories } from "../Category/category.js";
+import { Categories } from "./category.js";
 
 export class Content {
   constructor(id, image, title, rating, platform, categories) {
