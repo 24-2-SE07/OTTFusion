@@ -5,24 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTT Comprehensive Rating Application</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">  
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <header>
       <div class="logo">OTT</div>
-      <div class="menu">☰</div>
+      <button class="menu">☰</button>
     </header>
     <main>
         <section class="content-of-the-day">
           <h2>오늘의 콘텐츠</h2>
           <hr>
           <div class="content-grid"></div>
+
+          <div id="sidebar" class="sidebar">
+            <div id="auth-section">
+            </div>
+            <hr>
+            <div class="category-list">
+              <a href="#" data-category="all">모든 콘텐츠</a>
+              <a href="#" data-category="로맨스">로맨스</a>
+              <a href="#" data-category="공포">공포</a>
+              <a href="#" data-category="액션">액션</a>
+              <a href="#" data-category="미스테리">미스테리</a>
+              <a href="#" data-category="예능">예능</a>
+              <a href="#" data-category="영화">영화</a>
+              <a href="#" data-category="드라마">드라마</a>
+            </div>
+          </div>
         </section>
     </main>
 
-    <script type="module" src="../Category/category.js"></script>
-    <script type="module" src="../Content/content.js"></script>
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="../Module/category.js"></script>
+    <script type="module" src="../Module/content.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>

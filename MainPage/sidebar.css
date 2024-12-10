@@ -1,0 +1,66 @@
+/* 기본 스타일 설정 */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* 사이드바를 화면 오른쪽 밖에 위치시킴 */
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  transition: right 0.3s ease; /* 오른쪽에서 슬라이드로 들어오는 애니메이션 */
+  padding: 20px;
+}
+
+.menu {
+  cursor: pointer;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 1px 5px 2px 5px;
+  border: 0px;
+  border-radius: 8px; /* 모서리 둥글게 */
+  transition: color 0.3s ease;
+  position: fixed;
+  top: 8px;
+  right: 25px;
+  z-index: 1000;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #555;
+}
+
+#auth-section {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+#auth-section p {
+  margin-left: 8px;
+}
+
+.category-list a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+  transition: background 0.3s;
+}
+
+.category-list a:hover {
+  background-color: #555;
+}
+
+/* 오른쪽 사이드바가 열린 상태 */
+.sidebar.open {
+  right: 0; /* 오른쪽에서 화면에 보이게 설정 */
+}
