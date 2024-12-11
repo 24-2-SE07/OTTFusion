@@ -1,0 +1,32 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 350px;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.folder-list {
+    height: 45%;
+}
+
+.add-folder:hover {
+    background-color: #eee;
+}
+
+.modal-actions {
+    text-align: right;
+}
+
+#trigger-button {
+    cursor: pointer;
+    font-size: 24px;
+    color: #f9f9f9;
+}

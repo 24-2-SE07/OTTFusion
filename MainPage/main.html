@@ -6,6 +6,7 @@
     <title>OTT Comprehensive Rating Application</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">  
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
@@ -20,6 +21,20 @@
           <hr>
           <div class="content-grid"></div>
 
+          <div id="modal" class="modal">
+            <h4>내 콘텐츠 폴더</h4>
+            <hr>
+            <div class="folder-list">
+            </div>
+            <hr>
+            <div class="add-folder" id="add-folder">
+              <h5><i class="fa fa-plus"></i> 폴더 추가하기</h5>
+            </div>
+            <div class="modal-actions">
+              <button id="confirm">확인</button>
+              <button id="cancel">취소</button>
+            </div>
+          </div>
           <div id="sidebar" class="sidebar">
             <div id="auth-section">
             </div>
