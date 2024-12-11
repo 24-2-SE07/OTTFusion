@@ -19,4 +19,5 @@ export class Folder {
 export const folders = [
     new Folder('여름', ['00000001', '00000002', '00000007', '00000012']),
     new Folder('보고싶은', []),
+    new Folder('테스트 폴더', []),
 ];

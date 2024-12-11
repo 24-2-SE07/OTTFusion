@@ -11,20 +11,24 @@ $(document).ready(function () {
   loadModal();
 });
 
-function renderContents(filteredContents) {
+async function renderContents(filteredContents) {
   const $contentGrid = $(".content-grid");
-  $contentGrid.empty(); // 콘텐츠 그리드 초기화
+  $contentGrid.empty(); 
+  await sleep(100);
 
   filteredContents.forEach(content => {
-    const contentHTML = `
+    let contentHTML = `
       <div class="content-item">
-        <img src="../image/image.png" alt="${content.title}" class="content-image">
+        <img src="../image/${content.image}" alt="${content.title}" class="content-image">
         <i class="far fa-heart"></i>
         <h2 class="content-title">${content.title}</h2>
         <div class="rating">${content.rating}</div>
         <p class="platform">플랫폼: ${content.platform}</p>
       </div>
     `;
+    if (isLoggedIn && (content.id == "00000001" || content.id == "00000007" || content.id == "00000012")) {
+      contentHTML = contentHTML.replace('far fa-heart', 'fas fa-heart');
+    }
     $contentGrid.append(contentHTML);
   });
 
@@ -92,7 +96,7 @@ function updateInfo() {
   if (isLoggedIn) {
       authSection.html(`
           <hr>
-          <p>user1 님</p>
+          <p>User 님</p>
           <a href="#" id="logout-link">로그아웃</a>
       `);
       $('#logout-link').on('click', function (event) {
@@ -107,9 +111,10 @@ function updateInfo() {
   }
 }
 
-function logout() {
+function logout() { 
   isLoggedIn = false;
   updateInfo();
+  renderContents(contents);
 }
 
 function loadModal() {
@@ -135,4 +140,8 @@ function loadFolderList() {
     `;
     folderList.append(folderItem);
   });
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
