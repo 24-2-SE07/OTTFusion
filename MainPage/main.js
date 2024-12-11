@@ -11,9 +11,10 @@ $(document).ready(function () {
   loadModal();
 });
 
-function renderContents(filteredContents) {
+async function renderContents(filteredContents) {
   const $contentGrid = $(".content-grid");
-  $contentGrid.empty(); // 콘텐츠 그리드 초기화
+  $contentGrid.empty(); 
+  await sleep(100);
 
   filteredContents.forEach(content => {
     let contentHTML = `
@@ -110,9 +111,10 @@ function updateInfo() {
   }
 }
 
-function logout() {
+function logout() { 
   isLoggedIn = false;
   updateInfo();
+  renderContents(contents);
 }
 
 function loadModal() {
@@ -138,4 +140,8 @@ function loadFolderList() {
     `;
     folderList.append(folderItem);
   });
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }

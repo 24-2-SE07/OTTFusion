@@ -111,3 +111,12 @@ header {
   right: 15%; /* 오른쪽에 배치 */
   cursor: pointer;
 }
+
+.fa-trash {
+  font-size: 24px;
+  cursor: pointer;
+  margin-top: 30px;
+  position: absolute; /* 아이콘을 절대 위치로 설정 */
+  right: 30px; /* 오른쪽에서 10px 떨어지게 위치 */
+  transform: translateY(-50%); /* 정확한 수직 중앙 정렬 */
+}
