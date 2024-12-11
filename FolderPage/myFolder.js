@@ -29,7 +29,7 @@ $(document).ready(function () {
         if (content) {
           const contentHTML = `
             <div class="content-item">
-              <img src="../image/image.png" alt="${content.title}" class="content-image">
+              <img src="../image/${content.image}" alt="${content.title}" class="content-image">
               <i class="fas fa-heart"></i>
               <h3 class="content-title">${content.title}</h3>
               <div class="rating">${content.rating}</div>

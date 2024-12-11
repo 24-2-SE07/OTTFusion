@@ -20,3 +20,9 @@ local storage 사용,
 search.js -> the glory selected 상태에서 검색되도록 
 OR 
 Folder 에서 혹은 Main 에서 삭제 test 후 search test
+
+
+## scenario
+- Main 화면에서 시작
+-- 기본 채워진 하트 : 오징어 게임, 너의 이름은, 스파이더맨: 노 웨이 홈
+- 
