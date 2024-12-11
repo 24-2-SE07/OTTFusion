@@ -25,6 +25,16 @@
         </section>
     </main>
 
+    <div id="navbar-container"></div>
+      
+    <script>
+      fetch('../UnderBar/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+        });
+    </script>
+    
     <script type="module" src="../Module/category.js"></script>
     <script type="module" src="../Module/content.js"></script>
     <script type="module" src="../Module/folder.js"></script>

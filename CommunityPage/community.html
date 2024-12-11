@@ -37,6 +37,16 @@
       </main>
     
       <button id="createPostButton" onclick="goToCreatePost()">✏️</button>
+      
+      <div id="navbar-container"></div>
+      
+      <script>
+        fetch('../UnderBar/navbar.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('navbar-container').innerHTML = data;
+          });
+      </script>
     
       <script src="community.js"></script>
     </body>
