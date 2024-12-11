@@ -62,7 +62,7 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin: auto; 
-  max-width: 1000px; 
+  width: 80%;
   gap: auto;
   margin-top: 20px;
   justify-content: center;
@@ -73,8 +73,10 @@ header {
   border-radius: 8px;
   margin: auto;
   margin-top: 20px;
-  padding: 10px;
-  width: 200px;
+  padding: 7%;
+  width: 70%;
+  height: 90%;
+  max-width: 80%;
   background: #f9f9f9;
   text-align: center;
   position: relative;
@@ -87,25 +89,25 @@ header {
 }
 
 .content-title {
-  font-size: 18px;
+  font-size: clamp(0.6rem, 2.5vw, 1.4rem); /* 화면 너비에 비례하여 폰트 크기 조정 */
   margin: 10px 0;
 }
 
 .rating {
-  font-size: 18px;
+  font-size: clamp(0.5rem, 2vw, 1.2rem); /* 화면 너비에 비례하여 폰트 크기 조정 */
   color: #ff9900;
 }
 
 .platform {
-  font-size: 14px;
+  font-size: clamp(0.5rem, 2vw, 1.2rem); /* 화면 너비에 비례하여 폰트 크기 조정 */
   color: #666;
 }
 
 .fa-heart {
-  font-size: 24px; 
+  font-size: clamp(1rem, 3vw, 2rem); /* 화면 너비에 비례하여 크기 조정 */
   color: #f00;
   position: absolute;
-  bottom: 140px;  /* 원하는 위치로 조정 */
-  right: 20px; /* 오른쪽에 배치 */
+  top: 45%;  /* 원하는 위치로 조정 */
+  right: 15%; /* 오른쪽에 배치 */
   cursor: pointer;
 }
