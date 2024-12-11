@@ -1,4 +1,5 @@
 import { contents } from '../Module/content.js'; 
+import { Folder, folders } from '../Module/folder.js';
 
 let isLoggedIn = true; // 로그인 상태 플래그
 
@@ -6,25 +7,8 @@ $(document).ready(function () {
   renderContents(contents);
 
   loadSidebar();
-  $(".menu").on("click", function() {
-    $("#sidebar").toggleClass("open"); // 'open' 클래스를 토글하여 사이드바 열기/닫기
-    }); 
   
-  $(".category-list").on("click", "a", function (event) {
-    event.preventDefault(); // 기본 링크 동작 방지
-    const category = $(this).data("category");
-
-    const filteredContents = category === "all"
-      ? contents
-      : contents.filter(content => content.categories.has(category));
-
-    filteredContents.sort((a, b) => {
-      const ratingA = parseFloat(a.rating.replace('⭐️', '').trim()); 
-      const ratingB = parseFloat(b.rating.replace('⭐️', '').trim()); 
-      return ratingB - ratingA; 
-    });
-    renderContents(filteredContents);
-  });
+  loadModal();
 });
 
 function renderContents(filteredContents) {
@@ -51,7 +35,28 @@ function renderContents(filteredContents) {
 
 function toggleHeart($heartIcon) {
   if ($heartIcon.hasClass("far")) {
-    $heartIcon.removeClass("far").addClass("fas"); // 빈 하트 -> 꽉 찬 하트
+    $("#modal").toggle();
+    loadFolderList(); // 빈 하트 -> 꽉 찬 하트
+    
+    $('#confirm').on('click', function() {
+      if ($('input[name="folder"]:checked').length === 0) {
+        alert('폴더를 선택해주세요.');
+      }
+      else {
+        alert('저장되었습니다.'); 
+        $("#modal").toggle();
+        $('#confirm').off('click');
+        $('#cancel').off('click');
+        $heartIcon.removeClass("far").addClass("fas");
+      }
+    });
+
+    $('#cancel').on('click', function() {
+      $("#modal").toggle(); 
+      $('#confirm').off('click');
+      $('#cancel').off('click');
+    });
+
   } else {
     $heartIcon.removeClass("fas").addClass("far"); // 꽉 찬 하트 -> 빈 하트
   }
@@ -59,6 +64,30 @@ function toggleHeart($heartIcon) {
 
 
 function loadSidebar() {
+  updateInfo();
+  
+  $(".menu").on("click", function() {
+    $("#sidebar").toggleClass("open"); // 'open' 클래스를 토글하여 사이드바 열기/닫기
+    }); 
+  
+  $(".category-list").on("click", "a", function (event) {
+    event.preventDefault(); // 기본 링크 동작 방지
+    const category = $(this).data("category");
+
+    const filteredContents = category === "all"
+      ? contents
+      : contents.filter(content => content.categories.has(category));
+
+    filteredContents.sort((a, b) => {
+      const ratingA = parseFloat(a.rating.replace('⭐️', '').trim()); 
+      const ratingB = parseFloat(b.rating.replace('⭐️', '').trim()); 
+      return ratingB - ratingA; 
+    });
+    renderContents(filteredContents);
+  });
+}
+
+function updateInfo() {
   const authSection = $('#auth-section');
   if (isLoggedIn) {
       authSection.html(`
@@ -80,7 +109,30 @@ function loadSidebar() {
 
 function logout() {
   isLoggedIn = false;
-  loadSidebar(); // 로그아웃 후 사이드바 업데이트
+  updateInfo();
 }
 
+function loadModal() {
+  $("#add-folder").on("click", function () {
+    const folderName = prompt("폴더 이름을 입력하세요:");
+    if (folderName) {
+      folders.push(new Folder(folderName, []));
+      loadFolderList();
+    }
+  });
+}
 
+function loadFolderList() {
+  const folderList = $(".folder-list");
+  folderList.empty();
+  folders.forEach((folder, index) => {
+    const folderItem = `
+      <label>
+        <input type="radio" name="folder" value="folder${index + 1}">
+        ${folder.name}
+      </label>
+      <br>
+    `;
+    folderList.append(folderItem);
+  });
+}
